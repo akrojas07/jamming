@@ -8,7 +8,7 @@ export default function SearchBar(){
         e.preventDefault();
         setSearch(e.target.value);
     }
-
+    
     return(
         <input
             type="text" 
