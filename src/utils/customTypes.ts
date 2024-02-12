@@ -15,7 +15,12 @@ export type ButtonAction = {
 }
 
 export interface ITrack {
+    id: number,
     trackTitle: string,
     trackArtist: string,
     trackAlbum: string
+}
+
+export interface ITrackList{
+    tracks: Array<ITrack>
 }

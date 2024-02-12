@@ -1,20 +1,19 @@
-import { EButtonAction, ITrack } from "../../utils/customTypes";
+import { EButtonAction, ITrackList } from "../../utils/customTypes";
 import Track from "../Track/Track";
 import TrackButton from "../common/TrackButton/TrackButton";
 
-export default function TrackList(){
-    //map tracks 
-    // mock track details
-    let mockTracks: Array<ITrack> = []
-
+//TODO: update button so it's on the same line as the track
+export default function TrackList({tracks}: ITrackList){
     return(
-        mockTracks.map(mockTrack => {
-            return(
-                <>
-                    <Track trackTitle={mockTrack.trackTitle} trackAlbum={mockTrack.trackAlbum} trackArtist={mockTrack.trackArtist}/>
-                    <TrackButton action={EButtonAction.ADD}/>
-                </>
-            )
-        })
+        <>
+            {tracks.map(track => {
+                return(
+                    <div key={track.id}>
+                        <Track  id={track.id} trackTitle={track.trackTitle} trackAlbum={track.trackAlbum} trackArtist={track.trackArtist}/>
+                        <TrackButton action={EButtonAction.ADD}/> 
+                    </div>
+                )
+            })}
+        </>
     )
 }
