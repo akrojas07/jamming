@@ -1,26 +1,27 @@
-// import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Search from './Components/Search/Search';
+import Results from './Components/SearchResults/Results';
+import Playlist from './Components/Playlist/Playlist';
+import { ITrack } from './utils/customTypes';
 
 function App() {
+  let mockTracks: Array<ITrack> = [
+    {id: 1, trackArtist: 'Layla', trackAlbum: 'The chonk', trackTitle:'I am a chonkster'},
+    {id: 1, trackArtist: 'Layla', trackAlbum: 'The chonk', trackTitle:'I am an eater'},
+    {id: 1, trackArtist: 'Layla', trackAlbum: 'The chonk', trackTitle:'Little Chan'}
+]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Jammming</h1>
       </header>
-      <Search />
+      <body>
+        <Search />
+        <div>
+          <Results tracks={mockTracks}/>
+          <Playlist />
+        </div>
+      </body>
     </div>
   );
 }
