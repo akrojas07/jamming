@@ -1,7 +1,7 @@
 import styles from './TrackButton.module.css'
-import { EButtonAction, ButtonAction } from '../../../utils/customTypes'
+import { EButtonAction, IButtonAction } from '../../../utils/customTypes'
 
-export default function TrackButton(buttonAction: ButtonAction){
+export default function TrackButton(buttonAction: IButtonAction){
     const buttonTitle = buttonAction.action === EButtonAction.ADD? '+' : '-';
     
     // can either add or remove a track
