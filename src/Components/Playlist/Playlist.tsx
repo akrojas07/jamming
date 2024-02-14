@@ -11,8 +11,12 @@ export default function Playlist({setPlaylistName, tracks, setPlayList}: IPlayli
   // save locally
   // "save to spotify" button saves the form
 
-    function handleOnChange(e: ChangeEvent<HTMLInputElement>){
+    function handleInputOnChange(e: ChangeEvent<HTMLInputElement>){
         setPlaylistName(e.target.value)
+    }
+
+    function handleRemoveOnClick(e: MouseEvent<HTMLButtonElement>){
+        alert(`${e.target} I was clicked to remove`)
     }
 
     function handleSubmit(e: FormEvent<HTMLFormElement>){
@@ -23,12 +27,12 @@ export default function Playlist({setPlaylistName, tracks, setPlayList}: IPlayli
 
     return(
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder={'Playlist Name'} onChange={handleOnChange}/>
+            <input type="text" placeholder={'Playlist Name'} onChange={handleInputOnChange}/>
             {tracks.map(track => {
                 return(
                     <div key={track.id}>
-                        <Track  id={track.id} trackTitle={track.trackTitle} trackAlbum={track.trackAlbum} trackArtist={track.trackArtist}/>
-                        <TrackButton action={EButtonAction.REMOVE}/>
+                        <Track id={track.id} trackTitle={track.trackTitle} trackAlbum={track.trackAlbum} trackArtist={track.trackArtist}/>
+                        <TrackButton action={EButtonAction.REMOVE} onClick={handleRemoveOnClick}/>
                     </div>
                 )
             })}

@@ -11,7 +11,8 @@ export enum EButtonAction {
 }
 
 export interface IButtonAction {
-    action : EButtonAction
+    action : EButtonAction,
+    onClick: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 export interface ITrack {
