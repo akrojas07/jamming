@@ -6,7 +6,7 @@ import { ITrack } from './utils/customTypes';
 import { createContext, useState } from 'react';
 // inputs and buttons should have same styling
 
-export const SearchResultTracksContext = createContext<Array<ITrack> | null>(null)
+export const TracksContext = createContext<Array<ITrack> | null>(null)
 
 function App() {
   let mockTracks: Array<ITrack> = [
@@ -16,9 +16,7 @@ function App() {
   ]
 
   const [resultTracks, setResultTracks] = useState<Array<ITrack>>(mockTracks)
-
-  const [playlistName, setPlaylistName] = useState('')
-  const [playList, setPlayList] = useState<Array<ITrack>>([])
+  const [playlistTracks, setPlaylistTracks] = useState<Array<ITrack>>(mockTracks)
 
   return (
     <div className={styles.App}>
@@ -28,10 +26,12 @@ function App() {
       <body>
         <Search />
         <div className={styles.playlistandresults}> 
-          <SearchResultTracksContext.Provider value={resultTracks}>
+          <TracksContext.Provider value={resultTracks!}>
             <Results />
-          </SearchResultTracksContext.Provider>
-          <Playlist setPlayList={setPlayList} setPlaylistName={setPlaylistName} tracks={playList}/>
+          </TracksContext.Provider>
+          <TracksContext.Provider value={playlistTracks!}>
+            <Playlist setPlaylistTracks={setPlaylistTracks}/>
+          </TracksContext.Provider>
         </div>
       </body>
     </div>

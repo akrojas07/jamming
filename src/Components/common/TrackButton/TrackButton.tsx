@@ -4,6 +4,6 @@ import { EButtonAction, IButtonAction } from '../../../utils/customTypes'
 export default function TrackButton({action, onClick}: IButtonAction){
     const buttonTitle = action === EButtonAction.ADD? '+' : '-';
     return(
-        <button className={styles.trackButton} onClick={onClick}>{buttonTitle}</button>
+        <button className={styles.trackButton} onClick={onClick} type='button'>{buttonTitle}</button>
     )
 }

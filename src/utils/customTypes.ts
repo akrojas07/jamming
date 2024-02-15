@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { Dispatch, MouseEvent, SetStateAction } from "react";
 
 export interface IButton{
     buttonTitle: string,
@@ -26,8 +26,11 @@ export interface ITrackList{
     tracks: Array<ITrack>
 }
 
-export interface IPlaylist{
-    setPlaylistName: (playlistName: string) => void,
-    setPlayList: (playlist: Array<ITrack>) => void,
+export interface IPlaylist {
+    setPlaylistTracks: Dispatch<SetStateAction<ITrack[]>>
+}
+
+export type PlaylistType = {
+    playlistName: string,
     tracks: Array<ITrack>
 }

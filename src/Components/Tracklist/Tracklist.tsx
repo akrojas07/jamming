@@ -2,16 +2,16 @@ import { MouseEvent, useContext } from "react";
 import { EButtonAction, ITrack } from "../../utils/customTypes";
 import Track from "../Track/Track";
 import TrackButton from "../common/TrackButton/TrackButton";
-import { SearchResultTracksContext } from "../../App";
+import { TracksContext } from "../../App";
 
 //TODO: update button so it's on the same line as the track
 export default function TrackList(){
-    const tracks = useContext(SearchResultTracksContext)
+    const tracks = useContext(TracksContext)
     let tempPlaylist = Array<ITrack>();
     
-    //TODO: finish add functionality: 2-15
     function handleAddOnClick(e: MouseEvent<HTMLButtonElement>, trackId: number){
         alert(`${e.target} ${trackId} I was clicked to add`)
+        tempPlaylist.push(tracks![trackId])
     }
 
     return(
